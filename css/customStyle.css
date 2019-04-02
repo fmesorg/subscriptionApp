@@ -1,0 +1,40 @@
+.paymentBox{
+    flex-wrap: nowrap;
+}
+
+.paymentInnerBox{
+    display: flex;
+    max-height: 50px;
+
+}
+
+.customAmount{
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+    .card{
+        max-width: 100%;
+    }
+}
+
+@media only screen and (min-width: 800px){
+.card {
+    max-width: 60%;
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+}
+    .ijmelogo{
+        margin-left: 150px;
+    }
+}
+
+.ijmelogo{
+    max-width: 38%;
+}
+
+#selectable td:hover { background: #17a2b8; color:white;}
+#selectable .ui-selecting { background: #17a2b8; }
+#selectable .ui-selected { background: #17a2b8; color: white; }
+
