@@ -45,15 +45,28 @@
             if (country === "India") {
                 currency = "INR";
                 showGSTfield();
+                showTableColumn(4);
             } else if (country === "Select") {
                 currency = "";
-            } else {
+            } else if (isSAARCountry(country)){
+                currency = "SAARC";
+                hideTableColumn(4);
+            }
+            else {
                 currency = "USD";
+                hideTableColumn(4);
             }
             document.getElementById("currency").value=currency;
+
+            if(currency==="INR"){
+                document.getElementById("FinalCurrency").value="INR";
+            }else if(currency === "SAARC"){
+                document.getElementById("FinalCurrency").value="INR";
+            }else {
+                document.getElementById("FinalCurrency").value="USD";
+            }
             setAmountType(currency);
             showSubscriptionBox();
-            enableSubmitIfAllFilled();
             setFinalAmount();
         };
 
@@ -82,9 +95,10 @@
             setElementValueWithURL('redirect_url', 'ccavResponseHandler.php');
             setElementValueWithURL('cancel_url', 'ccavResponseHandler.php');
 
-            setSubmitButtonState(false);
             hideSubscriptionBox();
             hideGSTfield();
+
+            hideTableColumn(4);
 
 
             $("#selectable").selectable({
@@ -92,7 +106,6 @@
                 selected: function(event, ui){
                     console.log(ui.selected.id);
                     updateBtnPayAmount(getSelectedCurency(), ui.selected.id);
-                    // console.log( "SELECTED " + $(ui.selected));
                 }
             });
 
@@ -138,36 +151,49 @@
                 <!--Personal Details -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="billing_name">Name</label>
-                        <input type="text" name="billing_name" id="billing_name" class="form-control" required onchange="enableSubmitIfAllFilled()">
+                        <label for="billing_name">Name*</label>
+                        <input type="text" name="billing_name" id="billing_name" class="form-control" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="billing_address">Address</label>
-                    <input type="text" name="billing_address" class="form-control" id="billing_address"  required onchange="enableSubmitIfAllFilled()">
+                    <label for="billing_address">Address*</label>
+                    <input type="text" name="billing_address" class="form-control" id="billing_address"  required >
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="billing_city">City</label>
-                        <input type="text" name="billing_city" class="form-control" id="billing_city" required onchange="enableSubmitIfAllFilled()">
+                        <label for="billing_city">City*</label>
+                        <input type="text" name="billing_city" class="form-control" id="billing_city" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="billing_state">State</label>
-                        <input type="text" name="billing_state" id="billing_state" class="form-control" required onchange="enableSubmitIfAllFilled()">
+                        <label for="billing_state">State*</label>
+                        <input type="text" name="billing_state" id="billing_state" class="form-control" required >
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="billing_zip">Zip/Postal</label>
-                        <input type="text" name="billing_zip" class="form-control" id="billing_zip" required onchange="enableSubmitIfAllFilled()">
+                        <label for="billing_zip">Zip/Postal*</label>
+                        <input type="text" name="billing_zip" class="form-control" id="billing_zip" required >
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="billing_country">Country</label>
+                        <label for="billing_country">Country*</label>
                         <select id="billing_country" name="billing_country" class="form-control" onchange="countrySelected()" required>
                         </select>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="designation">Designation</label>
+                        <input type="text" name="designation" id="designation" class="form-control" >
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="organisation">Organisation</label>
+                        <input type="text" name="organisation" id="organisation" class="form-control" >
+                    </div>
+                </div>
+
                 <div class="form-row">
                     <div class="col-sm-12 col-md-6">
                         <label for="countryCode">Contact Phone Number</label>
@@ -175,8 +201,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">+</span>
                             </div>
-                            <input type="text" id="countryCode" class="form-control col-2" aria-label="Country Code" aria-describedby="basic-addon1" maxlength="3">
-                            <input type="text" id="contactNumber" class="form-control col-auto"  aria-label="Country Code" aria-describedby="basic-addon1" onchange="setBillingTel()" maxlength="10">
+                            <input type="text" id="countryCode" class="form-control col-2" aria-label="Country Code" aria-describedby="basic-addon1" maxlength="3" onkeypress="return isNumberKey(event)">
+                            <input type="text" id="contactNumber" class="form-control col-auto"  aria-label="Country Code" aria-describedby="basic-addon1" onchange="setBillingTel()" maxlength="10" onkeypress="return isNumberKey(event)">
                         </div>
                     </div>
 
@@ -189,12 +215,24 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
                             </div>
-                            <input type="email" class="form-control" id="emailId" name="billing_email" required onchange="enableSubmitIfAllFilled()">
+                            <input type="email" class="form-control" id="emailId" name="billing_email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-6" id="subscriptionTypeBox">
+                        <div> <label>Subscription Type*</label></div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="subscriptionOption1" name="subscriptionType" class="custom-control-input" value="new">
+                            <label class="custom-control-label" for="subscriptionOption1">New</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="subscriptionOption2" name="subscriptionType" class="custom-control-input" value="renew">
+                            <label class="custom-control-label" for="subscriptionOption2">Renewal</label>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <div class="card-body" id="subscriptionBox">
                                 <h6 class="card-title">Please choose the subscription below:</h6>
@@ -204,6 +242,7 @@
                        <th valign="top"></th>
                        <th valign="top" data-selectable="column"><strong>Individual</strong></th>
                        <th valign="top" data-selectable="column"><strong>Institutional</strong></th>
+                       <th valign="top" data-selectable="column"><strong>Student</strong></th>
                     </tr>
                    </thead>
                    <tbody>
@@ -211,59 +250,32 @@
                            <th valign="top">One Year</th>
                            <td valign="top" id = "11"></td>
                            <td valign="top" id = "12"></td>
+                           <td valign="top" id = "13"></td>
                        </tr>
                        <tr>
                            <th valign="top">Two Year</th>
                            <td valign="top" id = "21"></td>
                            <td valign="top" id = "22"></td>
+                           <td valign="top" id = "23"></td>
                        </tr>
                        <tr>
                            <th valign="top">Five Year</th>
                            <td valign="top" id = "31"></td>
                            <td valign="top" id = "32"></td>
+                           <td valign="top" id = "33"></td>
                        </tr>
                        <tr>
                            <th valign="top">Life</th>
                            <td valign="top" id="41"></td>
                            <td valign="top" id="42"></td>
+                           <td valign="top" id="43"></td>
                        </tr>
                    </tbody>
                </table>
             </div>
 
 
-
-
-
-
-
             <div class="card-body">
-<!--                <h5 class="card-title">Payment Details</h5>-->
-
-<!--                <div class="form-row paymentBox">-->
-<!--                    <div class="col-sm-12 paymentInnerBox">-->
-<!--                        <div class="btn-group btn-group-lg btn-group-toggle"  id="paymentButtonGroup" onclick="clearCustomPaymentBox()">-->
-<!--                            <label class="btn btn-outline-secondary" id="op1" onclick="updateButtonState('op1')">-->
-<!--                                <input type="radio" name="options" id="option1" autocomplete="off" >$150-->
-<!--                            </label>-->
-<!--                            <label class="btn btn-outline-secondary" id="op2" onclick="updateButtonState('op2')">-->
-<!--                                <input type="radio" name="options" id="option2" autocomplete="off">$100-->
-<!--                            </label>-->
-<!--                            <label class="btn btn-outline-secondary" id="op3" onclick="updateButtonState('op3')">-->
-<!--                                <input type="radio" name="options" id="option3" autocomplete="off">$50-->
-<!--                            </label>-->
-<!--                        </div>-->
-<!--                        <div class="btn-group input-group input-group-lg ml-2 customAmount" role="group">-->
-<!--                            <div class="input-group-prepend">-->
-<!--                                <div class="input-group-text" id="customCurrency">$</div>-->
-<!--                            </div>-->
-<!--                            <input type="text" class="form-control" id="customAmount" name="customAmount" placeholder="Custom" onkeypress="clearPaymentBox()" onkeyup="updateCustomPayAmount()">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="clearfix"></div>-->
-<!--                <br>-->
 
                 <div class="form-row" id="gstField">
                     <div class="col-sm-12 col-md-6">
@@ -276,7 +288,7 @@
                 <div class="clearfix"></div>
                 <br><br>
                 <div class="form-row">
-                    <button class="btn btn-info btn-lg btn-block" id="btn_pay" >Pay</button>
+                    <div class="btn btn-info btn-lg btn-block" id="btn_pay" onclick="checkFields()">Pay</div>
                 </div>
 
                 <input type="text" name="language" value="en" hidden/>
@@ -287,8 +299,11 @@
                 <input type="text" name="merchant_id" value="146983" hidden/>
                 <input type="text" name="order_id" id="order_id" hidden/>
                 <input type="text" name="currency" id="currency" hidden>
+                <input type="text" name="FinalCurrency" id="FinalCurrency" hidden>
                 <input type="text" name="amount" id="amount" hidden>
                 <input type="text" name="billing_tel" id="billing_tel" hidden>
+                <input type="submit" value="Submit" id="submit" hidden>
+
 
             </div>
         </form>

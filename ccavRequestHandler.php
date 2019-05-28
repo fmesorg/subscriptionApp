@@ -12,8 +12,8 @@
     $working_key = CCAVENUE_WORKING_KEY;
     $access_code = CCAVENUE_ACCESS_CODE;
 
+    var_dump($_POST);
     $merchant_data = setMerchantValue($_POST);
-    echo $merchant_data;
     $encrypted_data = encrypt($merchant_data, $working_key); // Method for encrypting the data.
 //    https://secure.ccavenue.com       https://test.ccavenue.com/
     $production_url = 'https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction&encRequest=' . $encrypted_data . '&access_code=' . $access_code;
@@ -51,7 +51,7 @@
     $merchant_data.= 'tid='.$post['tid'].'&';
     $merchant_data.= 'merchant_id='.$post['merchant_id'].'&';
     $merchant_data.= 'order_id='.$post['order_id'].'&';
-    $merchant_data.= 'currency='.$post['currency'].'&';
+    $merchant_data.= 'currency='.$post['FinalCurrency'].'&';
     $merchant_data.= 'billing_tel='.$post['billing_tel'].'&';
 
     return $merchant_data;
