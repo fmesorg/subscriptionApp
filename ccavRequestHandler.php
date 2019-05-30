@@ -12,7 +12,6 @@
     $working_key = CCAVENUE_WORKING_KEY;
     $access_code = CCAVENUE_ACCESS_CODE;
 
-    var_dump($_POST);
     $merchant_data = setMerchantValue($_POST);
     $encrypted_data = encrypt($merchant_data, $working_key); // Method for encrypting the data.
 //    https://secure.ccavenue.com       https://test.ccavenue.com/
@@ -36,7 +35,7 @@
 <?php function setMerchantValue($post){
     $merchant_data='';
 
-    $merchant_data= 'amount='.$post['amount'].'&';
+    $merchant_data = 'amount='.$post['amount'].'&';
     $merchant_data.= 'billing_name='.$post['billing_name'].'&';
     $merchant_data.= 'billing_address='.$post['billing_address'].'&';
     $merchant_data.= 'billing_city='.$post['billing_city'].'&';
@@ -53,6 +52,12 @@
     $merchant_data.= 'order_id='.$post['order_id'].'&';
     $merchant_data.= 'currency='.$post['FinalCurrency'].'&';
     $merchant_data.= 'billing_tel='.$post['billing_tel'].'&';
+    $merchant_data.= 'merchant_param1='.$post['designation'].'&';
+    $merchant_data.= 'merchant_param2='.$post['organisation'].'&';
+    $merchant_data.= 'merchant_param3='.$post['subscriberType'].'&';
+    $merchant_data.= 'merchant_param4='.$post['timePeriod'].'&';
+    $merchant_data.= 'merchant_param5='.$post['subscriptionType'].'&';
 
     return $merchant_data;
 }
+

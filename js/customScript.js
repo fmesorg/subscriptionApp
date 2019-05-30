@@ -1,3 +1,5 @@
+
+
 var addOption = function (text, selectElement) {
     var option = document.createElement("option");
     option.text = text;
@@ -16,64 +18,30 @@ var setINR = function () {
     // currency = document.getElementById('customCurrency').textContent = '₹';
     let currency = '₹';
     document.getElementById('currency').textContent = currency;
-    setAmountByCurrency(currency);
+    // setAmountByCurrency(currency);
 };
 
 
 var setSAARC = function () {
-    let currency = 'Rs';
+    let currency = '₹';
     document.getElementById('currency').textContent = currency;
-    setAmountByCurrency(currency);
+    // setAmountByCurrency(currency);
 };
 
 var setUSD = function () {
    // currency = document.getElementById('customCurrency').textContent = '$';
     let currency = '$';
     document.getElementById('currency').textContent = currency;
-    setAmountByCurrency(currency);
+    // setAmountByCurrency(currency);
 };
 
-var amountMap = {
-    "$": {"11": 72, "12": 150, "13": "NA", "21": 120, "22": 270,"23": "NA", "31": 300, "32": 675,"33":"NA", "41": 6000, "42": 15000 , "43":"NA"},
-    "₹": {"11": 1200, "12": 3000, "13":600 ,"21": 2100, "22": 5250,"23":1050, "31": 5400, "32": 13500,"33":"NA", "41": 60000, "42": 150000,"43":"NA"},
-    "Rs": {"11": 1800, "12": 3600, "13":"NA" ,"21": 3300, "22": 6450,"23":"NA", "31": 8400, "32": 16500,"33":"NA", "41": 72000, "42": 165000,"43":"NA"}
-};
-
-var setAmountByCurrency = function (currency) {
-    //reset the selection and set the values
-    clearPaymentSelection();
-
-    document.getElementById('11').textContent = currency + getAmountForOpField('11',currency);
-    document.getElementById('12').textContent = currency + getAmountForOpField('12',currency);
-    document.getElementById('13').textContent = currency + getAmountForOpField('13',currency);
-    document.getElementById('21').textContent = currency + getAmountForOpField('21',currency);
-    document.getElementById('22').textContent = currency + getAmountForOpField('22',currency);
-    document.getElementById('23').textContent = currency + getAmountForOpField('23',currency);
-    document.getElementById('31').textContent = currency + getAmountForOpField('31',currency);
-    document.getElementById('32').textContent = currency + getAmountForOpField('32',currency);
-    document.getElementById('33').textContent = currency + getAmountForOpField('33',currency);
-    document.getElementById('41').textContent = currency + getAmountForOpField('41',currency);
-    document.getElementById('42').textContent = currency + getAmountForOpField('42',currency);
-    document.getElementById('43').textContent = currency + getAmountForOpField('43',currency);
-};
+// var amountMap = {
+//     "$": {"11": 72, "12": 150, "13": "NA", "21": 120, "22": 270,"23": "NA", "31": 300, "32": 675,"33":"NA", "41": 6000, "42": 15000 , "43":"NA"},
+//     "₹": {"11": 1200, "12": 3000, "13":600 ,"21": 2100, "22": 5250,"23":1050, "31": 5400, "32": 13500,"33":"NA", "41": 60000, "42": 150000,"43":"NA"},
+//     "Rs": {"11": 1800, "12": 3600, "13":"NA" ,"21": 3300, "22": 6450,"23":"NA", "31": 8400, "32": 16500,"33":"NA", "41": 72000, "42": 165000,"43":"NA"}
+// };
 
 
-var getAmountForOpField = function (fieldName,currency) {
-    return amountMap[currency][fieldName];
-};
-
-
-var clearPaymentBox = function () {
-    document.getElementById('op1').classList.remove('active');
-    document.getElementById('op2').classList.remove('active');
-    document.getElementById('op3').classList.remove('active');
-};
-
-var clearPaymentSelection = function () {
-    $.each($('#selectable td'), function(idx, val) {
-        $(this).removeClass('ui-selected');
-    });
-};
 
 
 var updateButtonTextAmount = function(amount,currency){
@@ -81,33 +49,21 @@ var updateButtonTextAmount = function(amount,currency){
     setBillingAmount(amount);
 }
 
-var updateButtonState = function (value) {
-    switch (value) {
-        case 'op1':setActive('op1');setInactive('op2');setInactive('op3'); break;
-        case 'op2':setInactive('op1');setActive('op2');setInactive('op3'); break;
-        case 'op3':setInactive('op1');setInactive('op2');setActive('op3'); break;
-    }
-    updateBtnPayAmount();
-}
 
-
-var updateBtnPayAmount = function (currency, mapValue) {
-
-    amount = getValueFromAmountMap(currency, mapValue);
+var updateBtnPayAmount = function (currency, amount) {
 
     setBillingAmount(amount);
     updateButtonTextAmount(amount,currency);
 }
 
-var getValueFromAmountMap = function (currency, mapValue) {
-    console.log("mapvalue"+mapValue+"currency"+currency);
-    return amountMap[currency][mapValue];
-
-}
-
-var getSelectedCurency = function () {
+var getSelectedCurrency = function () {
     return document.getElementById('currency').innerText;
 }
+
+ function getCurrency(){
+    console.log("currency=",document.getElementById('currency').innerText);
+    return document.getElementById('currency').innerText;
+};
 
 var setBillingAmount = function (value) {
     setElementValue('amount',value);
@@ -150,17 +106,6 @@ var arePaymentFieldsSelected = function () {
     return  isValueSelected("billing_country") && hasValue("currency") && isAmountSet("amount");
 };
 
-var isAmountSet = function (elementId) {
-    var amountValue = getSelectedValue(elementId);
-    console.log("amount",amountValue);
-    if(amountValue==="0"){
-        console.log("false"); return false;
-    }else {
-        console.log("true");
-        return true;
-    }
-};
-
 
 
 var isAmountSet = function (elementId) {
@@ -200,29 +145,80 @@ var getSelectedValue = function (elementId) {
     return document.getElementById(elementId).value;
 };
 
-
-var hideSubscriptionBox = function () {
-    document.getElementById('subscriptionBox').hidden = true;
-}
-
-var showSubscriptionBox = function () {
-    document.getElementById('subscriptionBox').hidden = false;
-}
-
-var hideGSTfield = function () {
-    document.getElementById('gstField').hidden = true;
-}
-
-var showGSTfield = function () {
-    document.getElementById('gstField').hidden = false;
-}
-
 var checkFields = function () {
     if(ifAllFilled()){
         clickSubmit();
         return true;
     }
 };
+
+
+
+function getAmountFromJson() {
+
+    let subscriberType = $("input[name=subscriberType]:checked").val();
+    let years = $("input[name=timePeriod]:checked").val();
+    // let paymentType = $("input[name=paymentType]:checked").val();
+    let paymentType = "OneTime";
+    let countryType = getCountryType();
+
+    // console.log("values> subtype=",subscriberType," years = ",years, " paymentType = ",paymentType, " countryType = ",countryType);
+
+    var amountData = getAmountMap();
+    var amountObject = _.find(amountData,function (data) {
+        return (data.subscriberType === subscriberType && data.years === years && data.paymentType === paymentType && data.countryType === countryType);
+    });
+    
+    if(!_.isUndefined(amountObject)){
+        // console.log(amountObject.amount);
+        return amountObject.amount;
+    }else{
+        return 0;
+    }
+};
+
+
+function getCountryType() {
+    let country = document.getElementById("billing_country").value;
+
+    if (country === "India") {
+        return "India";
+    } else if (country === "Select") {
+        return  "";
+    } else if (isSAARCountry(country)){
+        return "SAARC";
+    }
+    else {
+        return "International";
+    }
+}
+
+
+
+function setOptions() {
+
+    if(isStudent()){
+        disableRadioOption("timePeriod4");
+        disableRadioOption("timePeriod3");
+        resetRadioButton("timePeriod","timePeriod4");
+        resetRadioButton("timePeriod","timePeriod3");
+        // $('input[name=timePeriod]').attr('checked',false);
+    }
+    else{
+        enableRadioOption("timePeriod4");
+        enableRadioOption("timePeriod3");
+    }
+    updateBtnPayAmount(getCurrency(), getAmountFromJson())
+}
+
+function isStudent() {
+    let subscriberType = $("input[name=subscriberType]:checked").val();
+    if(subscriberType === "student"){
+        return true;
+    }else {
+        return false;
+    }
+}
 
 function clickSubmit() {
     document.getElementById("submit").click();
@@ -241,7 +237,7 @@ var ifAllFilled = function() {
 
     if(!isValueSelected("billing_country")){check = false;}
     if(!hasValue("contactNumber")){check = false};
-    if(!hasValue("currency")){check = false};
+    if(!hasValue("FinalCurrency")){check = false};
     if(!isNotBlank("emailId")){check = false};
 
     if(!isChecked("subscriptionOption1") && !isChecked("subscriptionOption2")){
@@ -251,13 +247,34 @@ var ifAllFilled = function() {
         document.getElementById("subscriptionTypeBox").style.border = "";
     };
 
-    if(!isNotBlank("amount")||!isAmountSet("amount")){
+    if(!isChecked("subscriberType1") && !isChecked("subscriberType2") && !isChecked("subscriberType3") ){
         check = false
-        document.getElementById("selectable").style.border = "solid 3px red";
+        document.getElementById("subscriberTypeBox").style.border = "solid 1px red";
+    }else {
+        document.getElementById("subscriberTypeBox").style.border = "";
+    };
+
+    if(!isChecked("timePeriod1") && !isChecked("timePeriod2") && !isChecked("timePeriod3")&& !isChecked("timePeriod4") ){
+        check = false
+        document.getElementById("timePeriodBox").style.border = "solid 1px red";
+    }else {
+        document.getElementById("timePeriodBox").style.border = "";
+    };
+
+    if(!isAmountSet('amount')){
+        check = false;
+        setSubmitButtonState('false')
     }else{
-        document.getElementById("selectable").style.border = "";
+        setSubmitButtonState('true');
     }
 
+    // if(!isChecked("paymentType1") && !isChecked("paymentType2")){
+    //     check = false
+    //     document.getElementById("paymentTypeBox").style.border = "solid 1px red";
+    // }else {
+    //     document.getElementById("paymentTypeBox").style.border = "";
+    // };
+    console.log("check",check);
     return check;
 };
 
@@ -307,3 +324,20 @@ var isSAARCountry = function (country) {
     }
 
 };
+
+
+function disableRadioOption(optionName) {
+    document.getElementById(optionName).disabled = true;
+}
+
+function enableRadioOption(optionName) {
+    document.getElementById(optionName).disabled = false;
+}
+
+function resetRadioButton(optionName,id) {
+    $('input[name="'+optionName+'"][id="'+id+'"]').prop("checked", false);
+
+    // $('input[name=timePeriod][id=timePeriod3]').attr('checked',false);
+
+
+}
