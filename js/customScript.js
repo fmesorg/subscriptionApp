@@ -106,11 +106,21 @@ var arePaymentFieldsSelected = function () {
     return  isValueSelected("billing_country") && hasValue("currency") && isAmountSet("amount");
 };
 
+function isValidEmail()
+{
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("emailId").value))
+    {
+        return true
+    }else{
+        return false
+    }
+}
+
 
 
 var isAmountSet = function (elementId) {
     var amountValue = getSelectedValue(elementId);
-    if(amountValue==="0"){
+    if(parseInt(amountValue) === 0){
         document.getElementById(elementId).style.borderColor="red";
         return false;
     }else {
@@ -225,8 +235,8 @@ function clickSubmit() {
 }
 
 
-var ifAllFilled = function() {
-    var check = true;
+var ifAllFilled = () => {
+    let check = true;
 
     if(!hasValue("billing_name")){check = false;}
 
@@ -237,8 +247,13 @@ var ifAllFilled = function() {
 
     if(!isValueSelected("billing_country")){check = false;}
     if(!hasValue("contactNumber")){check = false};
+    if(!hasValue("countryCode")){check = false };
     if(!hasValue("FinalCurrency")){check = false};
     if(!isNotBlank("emailId")){check = false};
+    if (!isValidEmail()){
+        check = false;
+        document.getElementById("emailId").style.border = "solid 1px red";
+    }
 
     if(!isChecked("subscriptionOption1") && !isChecked("subscriptionOption2")){
         check = false
@@ -246,6 +261,7 @@ var ifAllFilled = function() {
     }else {
         document.getElementById("subscriptionTypeBox").style.border = "";
     };
+
 
     if(!isChecked("subscriberType1") && !isChecked("subscriberType2") && !isChecked("subscriberType3") ){
         check = false

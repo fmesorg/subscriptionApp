@@ -159,7 +159,7 @@
         </div>
         <form method="post" action="ccavRequestHandler.php" role="form">
             <div class="card-body">
-                <h5 class="card-title">Please Enter the following details</h5>
+                <h5 class="card-title">$$ Please Enter the following details $$</h5>
                 <!--Personal Details -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -210,7 +210,7 @@
                 <div class="form-row">
                     <div class="col-sm-12 col-md-6">
                         <label for="countryCode">Contact Phone Number</label>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3" id="contact-container">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">+</span>
                             </div>
