@@ -5,210 +5,182 @@ function getAmountMap() {
     "years": "1",
     "paymentType": "OneTime",
     "countryType": "International",
-    "amount": 72
+    "amount": 90
   },
   {
     "subscriberType": "individual",
     "years": "2",
-    "paymentType": "OneTime",
-    "countryType": "International",
-    "amount": 120
-  },
-  {
-    "subscriberType": "individual",
-    "years": "5",
-    "paymentType": "OneTime",
-    "countryType": "International",
-    "amount": 300
-  },
-  {
-    "subscriberType": "individual",
-    "years": "life",
-    "paymentType": "OneTime",
-    "countryType": "International",
-    "amount": 6000
-  },
-  {
-    "subscriberType": "institutional",
-    "years": "1",
     "paymentType": "OneTime",
     "countryType": "International",
     "amount": 150
   },
   {
+    "subscriberType": "individual",
+    "years": "5",
+    "paymentType": "OneTime",
+    "countryType": "International",
+    "amount": 360
+  },
+  {
+    "subscriberType": "individual",
+    "years": "life",
+    "paymentType": "OneTime",
+    "countryType": "International",
+    "amount": 7200
+  },
+  {
+    "subscriberType": "institutional",
+    "years": "1",
+    "paymentType": "OneTime",
+    "countryType": "International",
+    "amount": 180
+  },
+  {
     "subscriberType": "institutional",
     "years": "2",
     "paymentType": "OneTime",
     "countryType": "International",
-    "amount": 270
+    "amount": 330
   },
   {
     "subscriberType": "institutional",
     "years": "5",
     "paymentType": "OneTime",
     "countryType": "International",
-    "amount": 675
+    "amount": 810
   },
   {
     "subscriberType": "institutional",
     "years": "life",
     "paymentType": "OneTime",
     "countryType": "International",
-    "amount": 15000
+    "amount": 18000
   },
   {
     "subscriberType": "individual",
     "years": "1",
     "paymentType": "OneTime",
     "countryType": "India",
-    "amount": 1200
+    "amount": 1440
   },
   {
     "subscriberType": "individual",
     "years": "2",
     "paymentType": "OneTime",
     "countryType": "India",
-    "amount": 2100
+    "amount": 2520
   },
   {
     "subscriberType": "individual",
     "years": "5",
     "paymentType": "OneTime",
     "countryType": "India",
-    "amount": 5400
+    "amount": 6480
   },
   {
     "subscriberType": "individual",
     "years": "life",
     "paymentType": "OneTime",
     "countryType": "India",
-    "amount": 60000
-  },
-  {
-    "subscriberType": "institutional",
-    "years": "1",
-    "paymentType": "OneTime",
-    "countryType": "India",
-    "amount": 3000
-  },
-  {
-    "subscriberType": "institutional",
-    "years": "2",
-    "paymentType": "OneTime",
-    "countryType": "India",
-    "amount": 5250
-  },
-  {
-    "subscriberType": "institutional",
-    "years": "5",
-    "paymentType": "OneTime",
-    "countryType": "India",
-    "amount": 13500
-  },
-  {
-    "subscriberType": "institutional",
-    "years": "life",
-    "paymentType": "OneTime",
-    "countryType": "India",
-    "amount": 150000
-  },
-  {
-    "subscriberType": "student",
-    "years": "1",
-    "paymentType": "OneTime",
-    "countryType": "India",
-    "amount": 600
-  },
-  {
-    "subscriberType": "student",
-    "years": "2",
-    "paymentType": "OneTime",
-    "countryType": "India",
-    "amount": 1050
-  },
-  {
-    "subscriberType": "individual",
-    "years": "1",
-    "paymentType": "OneTime",
-    "countryType": "SAARC",
-    "amount": 1800
-  },
-  {
-    "subscriberType": "individual",
-    "years": "2",
-    "paymentType": "OneTime",
-    "countryType": "SAARC",
-    "amount": 3300
-  },
-  {
-    "subscriberType": "individual",
-    "years": "5",
-    "paymentType": "OneTime",
-    "countryType": "SAARC",
-    "amount": 8400
-  },
-  {
-    "subscriberType": "individual",
-    "years": "life",
-    "paymentType": "OneTime",
-    "countryType": "SAARC",
     "amount": 72000
   },
   {
     "subscriberType": "institutional",
     "years": "1",
     "paymentType": "OneTime",
-    "countryType": "SAARC",
+    "countryType": "India",
     "amount": 3600
   },
   {
     "subscriberType": "institutional",
     "years": "2",
     "paymentType": "OneTime",
-    "countryType": "SAARC",
-    "amount": 6450
+    "countryType": "India",
+    "amount": 6300
   },
   {
     "subscriberType": "institutional",
     "years": "5",
     "paymentType": "OneTime",
-    "countryType": "SAARC",
-    "amount": 16500
+    "countryType": "India",
+    "amount": 16200
   },
   {
     "subscriberType": "institutional",
     "years": "life",
     "paymentType": "OneTime",
-    "countryType": "SAARC",
-    "amount": 165000
+    "countryType": "India",
+    "amount": 180000
+  },
+  {
+    "subscriberType": "student",
+    "years": "1",
+    "paymentType": "OneTime",
+    "countryType": "India",
+    "amount": 720
+  },
+  {
+    "subscriberType": "student",
+    "years": "2",
+    "paymentType": "OneTime",
+    "countryType": "India",
+    "amount": 1260
   },
   {
     "subscriberType": "individual",
     "years": "1",
-    "paymentType": "Yearly",
+    "paymentType": "OneTime",
     "countryType": "SAARC",
-    "amount": 1200
+    "amount": 2160
   },
   {
     "subscriberType": "individual",
     "years": "2",
-    "paymentType": "Yearly",
+    "paymentType": "OneTime",
     "countryType": "SAARC",
-    "amount": 1200
+    "amount": 3960
   },
   {
     "subscriberType": "individual",
     "years": "5",
-    "paymentType": "Yearly",
+    "paymentType": "OneTime",
     "countryType": "SAARC",
-    "amount": 1200
+    "amount": 10080
   },
   {
     "subscriberType": "individual",
     "years": "life",
-    "paymentType": "Yearly",
+    "paymentType": "OneTime",
     "countryType": "SAARC",
-    "amount": 1200
+    "amount": 86400
+  },
+  {
+    "subscriberType": "institutional",
+    "years": "1",
+    "paymentType": "OneTime",
+    "countryType": "SAARC",
+    "amount": 4320
+  },
+  {
+    "subscriberType": "institutional",
+    "years": "2",
+    "paymentType": "OneTime",
+    "countryType": "SAARC",
+    "amount": 7740
+  },
+  {
+    "subscriberType": "institutional",
+    "years": "5",
+    "paymentType": "OneTime",
+    "countryType": "SAARC",
+    "amount": 19800
+  },
+  {
+    "subscriberType": "institutional",
+    "years": "life",
+    "paymentType": "OneTime",
+    "countryType": "SAARC",
+    "amount": 198000
   }
 ] ;
 
