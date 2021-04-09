@@ -155,145 +155,144 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-<!--            Subscription Form-->
-          <strong> Sorry... Currently down for maintenance.</strong>
+            Subscription Form
         </div>
-<!--        <form method="post" action="ccavRequestHandler.php" role="form">-->
-<!--            <div class="card-body">-->
-<!--                <h5 class="card-title">Please Enter the following details</h5>-->
+        <form method="post" action="ccavRequestHandler.php" role="form">
+            <div class="card-body">
+                <h5 class="card-title">Please Enter the following details</h5>
                 <!--Personal Details -->
-<!--                <div class="form-row">-->
-<!--                    <div class="form-group col-md-6">-->
-<!--                        <label for="billing_name">Name*</label>-->
-<!--                        <input type="text" name="billing_name" id="billing_name" class="form-control" required>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="form-group">-->
-<!--                    <label for="billing_address">Address*</label>-->
-<!--                    <input type="text" name="billing_address" class="form-control" id="billing_address" required>-->
-<!--                </div>-->
-<!--                <div class="form-row">-->
-<!--                    <div class="form-group col-md-6">-->
-<!--                        <label for="billing_city">City*</label>-->
-<!--                        <input type="text" name="billing_city" class="form-control" id="billing_city" required>-->
-<!--                    </div>-->
-<!--                    <div class="form-group col-md-4">-->
-<!--                        <label for="billing_state">State*</label>-->
-<!--                        <input type="text" name="billing_state" id="billing_state" class="form-control" required>-->
-<!--                    </div>-->
-<!--                    <div class="form-group col-md-2">-->
-<!--                        <label for="billing_zip">Zip/Postal*</label>-->
-<!--                        <input type="text" name="billing_zip" class="form-control" id="billing_zip" required>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-row">-->
-<!--                    <div class="form-group col-md-6">-->
-<!--                        <label for="billing_country">Country*</label>-->
-<!--                        <select id="billing_country" name="billing_country" class="form-control"-->
-<!--                                onchange="countrySelected()" required>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-row">-->
-<!--                    <div class="form-group col-md-6">-->
-<!--                        <label for="designation">Designation</label>-->
-<!--                        <input type="text" name="designation" id="designation" class="form-control">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-row">-->
-<!--                    <div class="form-group col-md-6">-->
-<!--                        <label for="organisation">Organisation</label>-->
-<!--                        <input type="text" name="organisation" id="organisation" class="form-control">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="form-row">-->
-<!--                    <div class="col-sm-12 col-md-6">-->
-<!--                        <label for="countryCode">Contact Phone Number</label>-->
-<!--                        <div class="input-group mb-3" id="contact-container">-->
-<!--                            <div class="input-group-prepend">-->
-<!--                                <span class="input-group-text" id="basic-addon1">+</span>-->
-<!--                            </div>-->
-<!--                            <input type="text" id="countryCode" class="form-control col-2" aria-label="Country Code"-->
-<!--                                   aria-describedby="basic-addon1" maxlength="3" onkeypress="return isNumberKey(event)">-->
-<!--                            <input type="text" id="contactNumber" class="form-control col-auto"-->
-<!--                                   aria-label="Country Code" aria-describedby="basic-addon1" onchange="setBillingTel()"-->
-<!--                                   maxlength="10" onkeypress="return isNumberKey(event)">-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!---->
-<!--                </div>-->
-<!---->
-<!--                <div class="form-row">-->
-<!--                    <div class="col-sm-12 col-md-6">-->
-<!--                        <label for="emailId">Email ID</label>-->
-<!--                        <div class="input-group mb-3">-->
-<!--                            <div class="input-group-prepend">-->
-<!--                                <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>-->
-<!--                            </div>-->
-<!--                            <input type="email" class="form-control" id="emailId" name="billing_email" required>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="form-row">-->
-<!--                    <div class="form-group col-sm-12 col-md-6" id="subscriptionTypeBox">-->
-<!--                        <div><label>Subscription Type*</label></div>-->
-<!--                        <div class="custom-control custom-radio custom-control-inline">-->
-<!--                            <input type="radio" id="subscriptionOption1" name="subscriptionType"-->
-<!--                                   class="custom-control-input" value="new">-->
-<!--                            <label class="custom-control-label" for="subscriptionOption1">New</label>-->
-<!--                        </div>-->
-<!--                        <div class="custom-control custom-radio custom-control-inline">-->
-<!--                            <input type="radio" id="subscriptionOption2" name="subscriptionType"-->
-<!--                                   class="custom-control-input" value="renew">-->
-<!--                            <label class="custom-control-label" for="subscriptionOption2">Renewal</label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-row">-->
-<!--                    <div class="form-group col-md-12" id="subscriberTypeBox">-->
-<!--                        <div><label>Subscriber Type*</label></div>-->
-<!--                        <div class="custom-control custom-radio custom-control-inline" >-->
-<!--                            <input type="radio" id="subscriberType1" name="subscriberType" class="custom-control-input"-->
-<!--                                   value="individual" onclick="setOptions()">-->
-<!--                            <label class="custom-control-label" for="subscriberType1">Individual</label>-->
-<!--                        </div>-->
-<!--                        <div class="custom-control custom-radio custom-control-inline">-->
-<!--                            <input type="radio" id="subscriberType2" name="subscriberType" class="custom-control-input"-->
-<!--                                   value="institutional" onclick="setOptions()">-->
-<!--                            <label class="custom-control-label" for="subscriberType2">institutional</label>-->
-<!--                        </div>-->
-<!--                        <div class="custom-control custom-radio custom-control-inline">-->
-<!--                        <input type="radio" id="subscriberType3" name="subscriberType" class="custom-control-input"-->
-<!--                               value="student" onclick="setOptions()">-->
-<!--                        <label class="custom-control-label" for="subscriberType3">Student</label>-->
-<!--                        </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="form-row">-->
-<!--                <div class="form-group col-sm-12 col-md-12" id="timePeriodBox">-->
-<!--                    <div><label>Time Period*</label></div>-->
-<!--                    <div class="custom-control custom-radio custom-control-inline" onclick="setOptions()">-->
-<!--                        <input type="radio" id="timePeriod1" name="timePeriod" class="custom-control-input" value="1">-->
-<!--                        <label class="custom-control-label" for="timePeriod1">One year</label>-->
-<!--                    </div>-->
-<!--                    <div class="custom-control custom-radio custom-control-inline" onclick="setOptions()">-->
-<!--                        <input type="radio" id="timePeriod2" name="timePeriod" class="custom-control-input" value="2">-->
-<!--                        <label class="custom-control-label" for="timePeriod2">Two year</label>-->
-<!--                    </div>-->
-<!--                    <div class="custom-control custom-radio custom-control-inline" onclick="setOptions()">-->
-<!--                        <input type="radio" id="timePeriod3" name="timePeriod" class="custom-control-input" value="5">-->
-<!--                        <label class="custom-control-label" for="timePeriod3">Five year</label>-->
-<!--                    </div>-->
-<!--                    <div class="custom-control custom-radio custom-control-inline" onclick="setOptions()">-->
-<!--                        <input type="radio" id="timePeriod4" name="timePeriod" class="custom-control-input"-->
-<!--                               value="life">-->
-<!--                        <label class="custom-control-label" for="timePeriod4">Life</label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="billing_name">Name*</label>
+                        <input type="text" name="billing_name" id="billing_name" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="billing_address">Address*</label>
+                    <input type="text" name="billing_address" class="form-control" id="billing_address" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="billing_city">City*</label>
+                        <input type="text" name="billing_city" class="form-control" id="billing_city" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="billing_state">State*</label>
+                        <input type="text" name="billing_state" id="billing_state" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="billing_zip">Zip/Postal*</label>
+                        <input type="text" name="billing_zip" class="form-control" id="billing_zip" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="billing_country">Country*</label>
+                        <select id="billing_country" name="billing_country" class="form-control"
+                                onchange="countrySelected()" required>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="designation">Designation</label>
+                        <input type="text" name="designation" id="designation" class="form-control">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="organisation">Organisation</label>
+                        <input type="text" name="organisation" id="organisation" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="countryCode">Contact Phone Number</label>
+                        <div class="input-group mb-3" id="contact-container">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">+</span>
+                            </div>
+                            <input type="text" id="countryCode" class="form-control col-2" aria-label="Country Code"
+                                   aria-describedby="basic-addon1" maxlength="3" onkeypress="return isNumberKey(event)">
+                            <input type="text" id="contactNumber" class="form-control col-auto"
+                                   aria-label="Country Code" aria-describedby="basic-addon1" onchange="setBillingTel()"
+                                   maxlength="10" onkeypress="return isNumberKey(event)">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="emailId">Email ID</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
+                            </div>
+                            <input type="email" class="form-control" id="emailId" name="billing_email" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-6" id="subscriptionTypeBox">
+                        <div><label>Subscription Type*</label></div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="subscriptionOption1" name="subscriptionType"
+                                   class="custom-control-input" value="new">
+                            <label class="custom-control-label" for="subscriptionOption1">New</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="subscriptionOption2" name="subscriptionType"
+                                   class="custom-control-input" value="renew">
+                            <label class="custom-control-label" for="subscriptionOption2">Renewal</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12" id="subscriberTypeBox">
+                        <div><label>Subscriber Type*</label></div>
+                        <div class="custom-control custom-radio custom-control-inline" >
+                            <input type="radio" id="subscriberType1" name="subscriberType" class="custom-control-input"
+                                   value="individual" onclick="setOptions()">
+                            <label class="custom-control-label" for="subscriberType1">Individual</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="subscriberType2" name="subscriberType" class="custom-control-input"
+                                   value="institutional" onclick="setOptions()">
+                            <label class="custom-control-label" for="subscriberType2">institutional</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="subscriberType3" name="subscriberType" class="custom-control-input"
+                               value="student" onclick="setOptions()">
+                        <label class="custom-control-label" for="subscriberType3">Student</label>
+                        </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-12 col-md-12" id="timePeriodBox">
+                    <div><label>Time Period*</label></div>
+                    <div class="custom-control custom-radio custom-control-inline" onclick="setOptions()">
+                        <input type="radio" id="timePeriod1" name="timePeriod" class="custom-control-input" value="1">
+                        <label class="custom-control-label" for="timePeriod1">One year</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" onclick="setOptions()">
+                        <input type="radio" id="timePeriod2" name="timePeriod" class="custom-control-input" value="2">
+                        <label class="custom-control-label" for="timePeriod2">Two year</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" onclick="setOptions()">
+                        <input type="radio" id="timePeriod3" name="timePeriod" class="custom-control-input" value="5">
+                        <label class="custom-control-label" for="timePeriod3">Five year</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline" onclick="setOptions()">
+                        <input type="radio" id="timePeriod4" name="timePeriod" class="custom-control-input"
+                               value="life">
+                        <label class="custom-control-label" for="timePeriod4">Life</label>
+                    </div>
+                </div>
+            </div>
             <!--                <div class="form-row">-->
             <!--                    <div class="col-sm-12 col-md-12" id="paymentTypeBox" >-->
             <!--                        <div> <label>How do you want to make the payment*</label></div>-->
@@ -350,7 +349,7 @@
     <!--            </div>-->
 
 
-<!--    <div class="card-body">-->
+    <div class="card-body">
 
         <!--                <div class="form-row" id="gstField">-->
         <!--                    <div class="col-sm-12 col-md-6">-->
@@ -360,28 +359,28 @@
         <!--                </div>-->
 
 
-<!--        <div class="clearfix"></div>-->
-<!--        <br><br>-->
-<!--        <div class="form-row">-->
-<!--            <div class="btn btn-info btn-lg btn-block" id="btn_pay" onclick="checkFields()">Pay</div>-->
-<!--        </div>-->
-<!---->
-<!--        <input type="text" name="language" value="en" hidden/>-->
-<!--        <input type="text" name="integration_type" value="iframe_normal" hidden/>-->
-<!--        <input type="text" name="redirect_url" id="redirect_url" hidden/>-->
-<!--        <input type="text" name="cancel_url" id="cancel_url" hidden/>-->
-<!--        <input type="text" name="tid" id="tid" hidden/>-->
-<!--        <input type="text" name="merchant_id" value="146983" hidden/>-->
-<!--        <input type="text" name="order_id" id="order_id" hidden/>-->
-<!--        <input type="text" name="currency" id="currency" hidden>-->
-<!--        <input type="text" name="FinalCurrency" id="FinalCurrency" hidden>-->
-<!--        <input type="text" name="amount" id="amount" hidden>-->
-<!--        <input type="text" name="billing_tel" id="billing_tel" hidden>-->
-<!--        <input type="submit" value="Submit" id="submit" hidden>-->
-<!---->
-<!---->
-<!--    </div>-->
-<!--    </form>-->
+        <div class="clearfix"></div>
+        <br><br>
+        <div class="form-row">
+            <div class="btn btn-info btn-lg btn-block" id="btn_pay" onclick="checkFields()">Pay</div>
+        </div>
+
+        <input type="text" name="language" value="en" hidden/>
+        <input type="text" name="integration_type" value="iframe_normal" hidden/>
+        <input type="text" name="redirect_url" id="redirect_url" hidden/>
+        <input type="text" name="cancel_url" id="cancel_url" hidden/>
+        <input type="text" name="tid" id="tid" hidden/>
+        <input type="text" name="merchant_id" value="146983" hidden/>
+        <input type="text" name="order_id" id="order_id" hidden/>
+        <input type="text" name="currency" id="currency" hidden>
+        <input type="text" name="FinalCurrency" id="FinalCurrency" hidden>
+        <input type="text" name="amount" id="amount" hidden>
+        <input type="text" name="billing_tel" id="billing_tel" hidden>
+        <input type="submit" value="Submit" id="submit" hidden>
+
+
+    </div>
+    </form>
 
 </div>
 
