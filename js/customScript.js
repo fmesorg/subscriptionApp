@@ -171,12 +171,13 @@ function getAmountFromJson() {
     // let paymentType = $("input[name=paymentType]:checked").val();
     let paymentType = "OneTime";
     let countryType = getCountryType();
+    let journalType=$("input[name=journalType]:checked").val();
 
-    // console.log("values> subtype=",subscriberType," years = ",years, " paymentType = ",paymentType, " countryType = ",countryType);
+    // console.log("values> subtype=",subscriberType," years = ",years, " paymentType = ",paymentType, " countryType = ",countryType,"journalType",journalType);
 
     var amountData = getAmountMap();
     var amountObject = _.find(amountData,function (data) {
-        return (data.subscriberType === subscriberType && data.years === years && data.paymentType === paymentType && data.countryType === countryType);
+        return (data.subscriberType === subscriberType && data.years === years && data.paymentType === paymentType && data.countryType === countryType && data.journalType===journalType);
     });
     
     if(!_.isUndefined(amountObject)){
@@ -268,6 +269,12 @@ var ifAllFilled = () => {
         document.getElementById("subscriberTypeBox").style.border = "solid 1px red";
     }else {
         document.getElementById("subscriberTypeBox").style.border = "";
+    };
+    if(!isChecked("journalType1") && !isChecked("journalType2")  ){
+        check = false
+        document.getElementById("journalTypeBox").style.border = "solid 1px red";
+    }else {
+        document.getElementById("journalTypeBox").style.border = "";
     };
 
     if(!isChecked("timePeriod1") && !isChecked("timePeriod2") && !isChecked("timePeriod3")&& !isChecked("timePeriod4") ){

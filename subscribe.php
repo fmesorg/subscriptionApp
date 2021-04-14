@@ -271,6 +271,21 @@
                         </div>
                 </div>
             </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12" id="journalTypeBox">
+                        <div><label>Journal Type*</label></div>
+                        <div class="custom-control custom-radio custom-control-inline" >
+                            <input type="radio" id="journalType1" name="journalType" class="custom-control-input"
+                                   value="Print copy" onclick="setOptions()">
+                            <label class="custom-control-label" for="journalType1">Print copy</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="journalType2" name="journalType" class="custom-control-input"
+                                   value="E copy (pdf)" onclick="setOptions()">
+                            <label class="custom-control-label" for="journalType2">E copy (pdf)</label>
+                        </div>
+                    </div>
+                </div>
             <div class="form-row">
                 <div class="form-group col-sm-12 col-md-12" id="timePeriodBox">
                     <div><label>Time Period*</label></div>
