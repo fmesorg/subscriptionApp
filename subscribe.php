@@ -209,7 +209,7 @@
 
                 <div class="form-row">
                     <div class="col-sm-12 col-md-6">
-                        <label for="countryCode">Contact Phone Number</label>
+                        <label for="countryCode">Contact Phone Number*</label>
                         <div class="input-group mb-3" id="contact-container">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">+</span>
@@ -226,7 +226,7 @@
 
                 <div class="form-row">
                     <div class="col-sm-12 col-md-6">
-                        <label for="emailId">Email ID</label>
+                        <label for="emailId">Email ID*</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div>
