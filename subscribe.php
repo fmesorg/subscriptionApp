@@ -262,7 +262,7 @@
                         <div class="custom-control custom-radio custom-control-inline">
                             <input type="radio" id="subscriberType2" name="subscriberType" class="custom-control-input"
                                    value="institutional" onclick="setOptions()">
-                            <label class="custom-control-label" for="subscriberType2">institutional</label>
+                            <label class="custom-control-label" for="subscriberType2">Institutional</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
                         <input type="radio" id="subscriberType3" name="subscriberType" class="custom-control-input"

@@ -272,7 +272,7 @@ function getAmountMap() {
             "paymentType": "OneTime",
             "journalType": "E copy (pdf)",
             "countryType": "International",
-            "amount": 1620
+            "amount": 16200
         },
         {
             "subscriberType": "individual",
